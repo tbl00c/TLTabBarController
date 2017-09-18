@@ -46,7 +46,7 @@
     TLDemoTableViewController *vc2 = [[TLDemoTableViewController alloc] init];
     UINavigationController *navC2 = [[UINavigationController alloc] initWithRootViewController:vc2];
     [tabBarController addChildViewController:navC2];
-    [vc2 setTitle:@"城市"];
+    [vc2 setTitle:@"分类"];
     [vc2.tabBarItem setImage:[UIImage imageNamed:@"cate"]];
     [vc2.tabBarItem setSelectedImage:[UIImage imageNamed:@"cateHL"]];
 
