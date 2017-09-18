@@ -16,8 +16,6 @@
 #pragma mark - ## TLTabBarControllerDelegateEvent
 @interface TLTabBarControllerDelegateEvent : NSObject <UITabBarControllerDelegate>
 
-@property (nonatomic, assign) NSInteger lastIndex;
-
 @property (nonatomic, strong) NSDate *lastClickDate;
 
 - (id)initWithTabBarController:(TLTabBarController *)tabBarController;
@@ -29,7 +27,6 @@
 - (id)initWithTabBarController:(TLTabBarController *)tabBarController
 {
     if (self = [super init]) {
-        self.lastIndex = -1;
         [tabBarController setDelegate:self];
     }
     return self;
@@ -45,7 +42,7 @@
     
     // 判断是否已选中
     NSInteger index = [tabBarController.tabBar.items indexOfObject:viewController.tabBarItem];
-    if (self.lastIndex == index) {
+    if (tabBarController.selectedIndex == index) {
         NSDate *date = [NSDate date];
         BOOL isDoubleClick = NO;
         // 判断是不是双击
@@ -77,7 +74,6 @@
         canSelected = viewController.tabBarItem.clickActionBlock();
     }
     if (canSelected) {
-        self.lastIndex = index;
         if ([vc respondsToSelector:@selector(tabBarItemDidClick:)]) {
             [(UIViewController<TLTabBarControllerProtocol> *)vc tabBarItemDidClick:NO];
         }

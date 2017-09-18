@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TLTabBarControllerProtocol.h"
 
-@interface TLDemoTableViewController : UITableViewController <TLTabBarControllerProtocol>
+@interface TLDemoTableViewController : UIViewController <TLTabBarControllerProtocol>
 
 @property (nonatomic, assign) NSInteger tag;
 

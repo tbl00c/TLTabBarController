@@ -10,7 +10,9 @@
 #import "SVProgressHUD.h"
 #import "UITabBar+TLExtension.h"
 
-@interface TLDemoTableViewController ()
+@interface TLDemoTableViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -26,14 +28,16 @@
 {
     NSString *title = [NSString stringWithFormat:@"Did double click %@", self.title];
     [SVProgressHUD showInfoWithStatus:title];
-    [self.tableView setContentOffset:CGPointZero];
+    [self.tableView setContentOffset:CGPointZero animated:YES];
 }
 
 #pragma mark - # Life Cycle
-- (void)viewDidLoad
+- (void)loadView
 {
-    [super viewDidLoad];
+    [super loadView];
     
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    [self.view addSubview:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     UIBarButtonItem *presentBarButton = [[UIBarButtonItem alloc] initWithTitle:@"present" style:UIBarButtonItemStyleDone target:self action:@selector(presentVC)];
@@ -51,6 +55,16 @@
     else if (self.tag == 2) {   // push
         [self.navigationItem setRightBarButtonItem:pushBarButton];
     }
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGFloat y = self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat height = self.view.frame.size.height - y - (self.tag == 0 ? self.tabBarController.tabBar.frame.size.height : 0);
+    CGFloat width = self.view.frame.size.width;
+    [self.tableView setFrame:CGRectMake(0, y, width, height)];
 }
 
 #pragma mark - # Event Response
@@ -164,16 +178,16 @@
     }
     else if (indexPath.section == 5){
         if (indexPath.row == 0) {
-            title = @"显示3";
+            title = @"随机数字";
         }
         else if (indexPath.row == 1) {
-            title = @"显示new";
+            title = @"new";
         }
         else if (indexPath.row == 2) {
-            title = @"显示Hello world";
+            title = @"你好，世界";
         }
         else if (indexPath.row == 3) {
-            title = @"显示点";
+            title = @"小圆点";
         }
         else if (indexPath.row == 4) {
             title = @"隐藏";
@@ -243,13 +257,13 @@
     }
     else if (indexPath.section == 5) {
         if (indexPath.row == 0) {
-            [self.tabBarItem setBadgeValue:@"3"];
+            [self.tabBarItem setBadgeValue:@(arc4random() % 100).stringValue];
         }
         else if (indexPath.row == 1) {
             [self.tabBarItem setBadgeValue:@"new"];
         }
         else if (indexPath.row == 2) {
-            [self.tabBarItem setBadgeValue:@"Hello world"];
+            [self.tabBarItem setBadgeValue:@"你好，世界"];
         }
         else if (indexPath.row == 3) {
             [self.tabBarItem setBadgeValue:@""];
@@ -291,6 +305,17 @@
             return @"Shadow";
     }
     return nil;
+}
+
+#pragma mark - # Getters
+- (UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        [_tableView setDelegate:self];
+        [_tableView setDataSource:self];
+    }
+    return _tableView;
 }
 
 @end

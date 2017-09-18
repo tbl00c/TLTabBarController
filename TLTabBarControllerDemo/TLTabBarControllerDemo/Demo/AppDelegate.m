@@ -10,6 +10,7 @@
 #import "TLTabBarController.h"
 #import "TLDemoTableViewController.h"
 #import "SVProgressHUD.h"
+#import "TLLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +31,7 @@
 #pragma mark - # Load UI
 - (void)loadUI
 {
+//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
     TLTabBarController *tabBarController = [[TLTabBarController alloc] init];
     
     
@@ -47,8 +49,6 @@
     [vc2 setTitle:@"城市"];
     [vc2.tabBarItem setImage:[UIImage imageNamed:@"cate"]];
     [vc2.tabBarItem setSelectedImage:[UIImage imageNamed:@"cateHL"]];
-    [vc2.tabBarItem setBadgeValue:@"1"];
-    [vc2.tabBarItem setBadgeColor:[UIColor orangeColor]];
 
     UITabBarItem *addItem = [[UITabBarItem alloc] initWithTitle:@"发布" image:[UIImage imageNamed:@"publish"] selectedImage:[UIImage imageNamed:@"publish"]];
     [tabBarController addPlusItemWithSystemTabBarItem:addItem actionBlock:^{
@@ -57,8 +57,19 @@
     
     TLDemoTableViewController *vc3 = [[TLDemoTableViewController alloc] init];
     UINavigationController *navC3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    __weak TLTabBarController *weakTabBarController = tabBarController;
     [tabBarController addChildViewController:navC3 actionBlock:^BOOL {
-        [SVProgressHUD showInfoWithStatus:@"请先登录"];
+        TLLoginViewController *vc = [[TLLoginViewController alloc] init];
+        [vc setAllowChangeTabBarItem:^(BOOL ok){
+            if (ok) {
+                [weakTabBarController setSelectedIndex:3];
+            }
+            else {
+                [SVProgressHUD showErrorWithStatus:@"禁止切换"];
+            }
+        }];
+        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
+        [weakTabBarController presentViewController:navC animated:YES completion:nil];
         return NO;
     }];
     [vc3 setTitle:@"消息"];

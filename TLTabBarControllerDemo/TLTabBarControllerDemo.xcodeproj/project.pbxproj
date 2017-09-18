@@ -22,6 +22,7 @@
 		C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D911F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m */; };
 		C2692D9A1F6C2FEC009C45BC /* TLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D931F6C2FEC009C45BC /* TLTabBarController.m */; };
 		C2692D9B1F6C2FEC009C45BC /* UITabBar+TLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D961F6C2FEC009C45BC /* UITabBar+TLExtension.m */; };
+		C2D983C81F6F812600F37EC2 /* TLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D983C71F6F812600F37EC2 /* TLLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		C2692D941F6C2FEC009C45BC /* TLTabBarControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTabBarControllerProtocol.h; sourceTree = "<group>"; };
 		C2692D951F6C2FEC009C45BC /* UITabBar+TLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+TLExtension.h"; sourceTree = "<group>"; };
 		C2692D961F6C2FEC009C45BC /* UITabBar+TLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+TLExtension.m"; sourceTree = "<group>"; };
+		C2D983C61F6F812600F37EC2 /* TLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLLoginViewController.h; sourceTree = "<group>"; };
+		C2D983C71F6F812600F37EC2 /* TLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				C26906B51F6C219C008159FD /* AppDelegate.m */,
 				C26906C01F6C219C008159FD /* TLDemoTableViewController.h */,
 				C26906C11F6C219C008159FD /* TLDemoTableViewController.m */,
+				C2D983C61F6F812600F37EC2 /* TLLoginViewController.h */,
+				C2D983C71F6F812600F37EC2 /* TLLoginViewController.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				C2692D981F6C2FEC009C45BC /* TLTabBar.m in Sources */,
 				C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */,
 				C269068C1F6C213A008159FD /* main.m in Sources */,
+				C2D983C81F6F812600F37EC2 /* TLLoginViewController.m in Sources */,
 				C26906C61F6C219C008159FD /* SVProgressHUD.m in Sources */,
 				C2692D9A1F6C2FEC009C45BC /* TLTabBarController.m in Sources */,
 				C2692D971F6C2FEC009C45BC /* TLBadge.m in Sources */,
