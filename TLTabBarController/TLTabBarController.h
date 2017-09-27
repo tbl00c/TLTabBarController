@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITabBar+TLExtension.h"
 
 @interface TLTabBarController : UITabBarController
 

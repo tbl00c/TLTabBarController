@@ -72,16 +72,16 @@
 - (void)p_resetImageOrigin
 {
     [self.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.title.length > 0) {
-            if (obj.isPlusButton) {
-                obj.imageInsets = UIEdgeInsetsMake(-self.plusButtonImageOffset, 0, self.plusButtonImageOffset, 0);
-            }
-            else {
-                obj.imageInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-            }
+        if (obj.isPlusButton) {
+            obj.imageInsets = UIEdgeInsetsMake(-self.plusButtonImageOffset, 0, self.plusButtonImageOffset, 0);
         }
         else {
-            obj.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+            if (obj.title.length > 0) {
+                obj.imageInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+            }
+            else {
+                obj.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+            }
         }
     }];
 }
