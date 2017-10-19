@@ -41,11 +41,17 @@
     if (view) {
         return view;
     }
+    if (self.hidden) {
+        return nil;
+    }
     for (UITabBarItem *tabBarItem in self.items) {
         if (tabBarItem.isPlusButton && tabBarItem.tabBarControl) {
             CGRect rect = tabBarItem.tabBarControl.frame;
-            if (point.x > rect.origin.x && point.x < rect.origin.x + rect.size.width && point.y < rect.origin.y + rect.size.height && point.y > rect.origin.y - self.plusButtonImageOffset) {
-                return tabBarItem.tabBarControl;
+            if (point.x > rect.origin.x && point.x < rect.origin.x + rect.size.width) {
+                CGFloat startY = MIN((rect.size.height - tabBarItem.image.size.height) / 2 - self.plusButtonImageOffset, 0);
+                if (point.y < rect.origin.y + rect.size.height && point.y > startY) {
+                    return tabBarItem.tabBarControl;
+                }
             }
         }
     }
