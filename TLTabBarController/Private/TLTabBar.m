@@ -95,7 +95,7 @@
 #pragma mark - # Getters
 - (NSArray *)barControlItems
 {
-    NSArray *barItems = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView * formerView, UIView * latterView) {
+    NSArray *barItems = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView *formerView, UIView *latterView) {
         CGFloat startX = formerView.frame.origin.x;
         CGFloat endX = latterView.frame.origin.x;
         return startX > endX ? NSOrderedDescending : NSOrderedAscending;
