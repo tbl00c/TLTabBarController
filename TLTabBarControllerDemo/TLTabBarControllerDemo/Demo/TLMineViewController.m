@@ -7,24 +7,25 @@
 //
 
 #import "TLMineViewController.h"
+#import "TLTabBarControllerProtocol.h"
+#import "SVProgressHUD.h"
 
-@interface TLMineViewController ()
+@interface TLMineViewController () <TLTabBarControllerProtocol>
+
+@property (nonatomic, strong) UIWebView *webView;
 
 @end
 
 @implementation TLMineViewController
 
-- (void)loadView
-{
+- (void)loadView {
     [super loadView];
-    
     [self setTitle:@"我的"];
     
     [self.view setBackgroundColor:[UIColor orangeColor]];
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.jianshu.com/u/8dabd0639b26"]]];
-    [self.view addSubview:webView];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.webView];
     
     UIBarButtonItem *clearBadgeButton = [[UIBarButtonItem alloc] initWithTitle:@"消除红点" style:UIBarButtonItemStylePlain target:self action:@selector(clearBadgeButtonClick)];
     [self.navigationItem setRightBarButtonItem:clearBadgeButton];
@@ -35,4 +36,15 @@
     [self.tabBarItem setBadgeValue:nil];
 }
 
-@end
+- (void)loadRequest
+{
+    [SVProgressHUD showInfoWithStatus:@"正在刷新..."];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.jianshu.com/u/8dabd0639b26"]]];
+}
+
+#pragma mark - # TLTabBarControllerProtocol
+- (void)tabBarItemDidDoubleClick
+{
+    
+}
+

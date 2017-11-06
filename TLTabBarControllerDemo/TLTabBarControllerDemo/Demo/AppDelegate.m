@@ -65,9 +65,14 @@
     }];
     
     // 消息页面，with跳转判断逻辑
+    
+    // 1、创建一个vc
     TLMessageViewController *vc3 = [[TLMessageViewController alloc] init];
     UINavigationController *navC3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    
+    // 2、将vc添加到tabBarController中，并设置自定义的响应时间
     [tabBarController addChildViewController:navC3 actionBlock:^BOOL {
+        // 3、点击响应block，弹出一个alertView
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"允许切换到消息界面吗" message:@"此处可做登录判断等需求" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"不允许" style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"允许" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -76,8 +81,11 @@
         [alertController addAction:cancelAction];
         [alertController addAction:okAction];
         [weakTabBarController.selectedViewController presentViewController:alertController animated:YES completion:nil];
+        
+        // 返回NO代表，点击该item时，不允许直接跳转
         return NO;
     }];
+    
     [vc3 setTitle:@"消息"];
     [vc3.tabBarItem setImage:[UIImage imageNamed:@"msg"]];
     [vc3.tabBarItem setSelectedImage:[UIImage imageNamed:@"msgHL"]];

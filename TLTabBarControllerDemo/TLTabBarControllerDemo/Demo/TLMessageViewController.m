@@ -7,8 +7,12 @@
 //
 
 #import "TLMessageViewController.h"
+#import "TLTabBarControllerProtocol.h"
+#import "SVProgressHUD.h"
 
-@interface TLMessageViewController ()
+@interface TLMessageViewController () <TLTabBarControllerProtocol>
+
+@property (nonatomic, strong) UIWebView *webView;
 
 @end
 
@@ -20,9 +24,8 @@
     
     [self.view setBackgroundColor:[UIColor orangeColor]];
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.libokun.com"]]];
-    [self.view addSubview:webView];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.webView];
     
     UIBarButtonItem *clearBadgeButton = [[UIBarButtonItem alloc] initWithTitle:@"消除红点" style:UIBarButtonItemStylePlain target:self action:@selector(clearBadgeButtonClick)];
     [self.navigationItem setRightBarButtonItem:clearBadgeButton];
@@ -31,6 +34,18 @@
 - (void)clearBadgeButtonClick
 {
     [self.tabBarItem setBadgeValue:nil];
+}
+
+- (void)loadRequest
+{
+    [SVProgressHUD showInfoWithStatus:@"正在刷新..."];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.libokun.com"]]];
+}
+
+#pragma mark - # TLTabBarControllerProtocol
+- (void)tabBarItemDidDoubleClick
+{
+    
 }
 
 @end
