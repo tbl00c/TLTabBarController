@@ -21,6 +21,7 @@
 {
     if (self = [super init]) {
         self.plusButtonImageOffset = 18;
+        self.itemPositioning = UITabBarItemPositioningFill;
         [self setBarTintColor:[UIColor whiteColor]];
     }
     return self;
@@ -30,8 +31,7 @@
 {
     [super layoutSubviews];
     
-    [self p_resetImageOrigin];          // 重置图片位置
-    [self p_resetTabBarItems];          // 重置TabBarItem持有的Control
+    [self p_resetTabBarItems];
 }
 
 // 响应区域
@@ -67,16 +67,14 @@
         NSLog(@"p_resetTabBarItems error");
         return;
     }
+
     for (int i = 0; i < self.items.count; i++) {
         UITabBarItem *item = self.items[i];
         UIControl *control = controlItems[i];
         [item setTabBarControl:control];
     }
-}
-
-/// 重置图片位置
-- (void)p_resetImageOrigin
-{
+    
+    // 重置图片位置
     [self.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.isPlusButton) {
             obj.imageInsets = UIEdgeInsetsMake(-self.plusButtonImageOffset, 0, self.plusButtonImageOffset, 0);

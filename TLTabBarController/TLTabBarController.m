@@ -50,7 +50,7 @@
             CGFloat time = [date timeIntervalSinceDate:self.lastClickDate];
             isDoubleClick = time < TL_DOUBLE_CLICK_TIME_INTERVAL;
         }
-    
+        
         if (isDoubleClick) {
             self.lastClickDate = nil;
             if ([vc respondsToSelector:@selector(tabBarItemDidDoubleClick)]) {
@@ -96,6 +96,7 @@
 - (void)loadView
 {
     [super loadView];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     self.delegateEvent = [[TLTabBarControllerDelegateEvent alloc] initWithTabBarController:self];
     [self setValue:[TLTabBar new] forKey:@"tabBar"];
@@ -130,3 +131,4 @@
 }
 
 @end
+

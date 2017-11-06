@@ -10,7 +10,9 @@
 #import "TLTabBarController.h"
 #import "TLDemoTableViewController.h"
 #import "SVProgressHUD.h"
-#import "TLLoginViewController.h"
+#import "TLPublishViewController.h"
+#import "TLMessageViewController.h"
+#import "TLMineViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,9 +33,12 @@
 #pragma mark - # Load UI
 - (void)loadUI
 {
+    
+    // 接入方式
 //    UITabBarController *tabBarController = [[UITabBarController alloc] init];
     TLTabBarController *tabBarController = [[TLTabBarController alloc] init];
     
+    __weak TLTabBarController *weakTabBarController = tabBarController;
     
     TLDemoTableViewController *vc1 = [[TLDemoTableViewController alloc] init];
     UINavigationController *navC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
@@ -50,26 +55,27 @@
     [vc2.tabBarItem setImage:[UIImage imageNamed:@"cate"]];
     [vc2.tabBarItem setSelectedImage:[UIImage imageNamed:@"cateHL"]];
 
+    
+    // 发布按钮
     UITabBarItem *addItem = [[UITabBarItem alloc] initWithTitle:@"发布" image:[UIImage imageNamed:@"publish"] selectedImage:[UIImage imageNamed:@"publish"]];
     [tabBarController addPlusItemWithSystemTabBarItem:addItem actionBlock:^{
-        [SVProgressHUD showInfoWithStatus:@"发布"];
+        TLPublishViewController *publishVC = [[TLPublishViewController alloc] init];
+        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:publishVC];
+        [weakTabBarController.selectedViewController presentViewController:navC animated:YES completion:nil];
     }];
     
-    TLDemoTableViewController *vc3 = [[TLDemoTableViewController alloc] init];
+    // 消息页面，with跳转判断逻辑
+    TLMessageViewController *vc3 = [[TLMessageViewController alloc] init];
     UINavigationController *navC3 = [[UINavigationController alloc] initWithRootViewController:vc3];
-    __weak TLTabBarController *weakTabBarController = tabBarController;
     [tabBarController addChildViewController:navC3 actionBlock:^BOOL {
-        TLLoginViewController *vc = [[TLLoginViewController alloc] init];
-        [vc setAllowChangeTabBarItem:^(BOOL ok){
-            if (ok) {
-                [weakTabBarController setSelectedIndex:3];
-            }
-            else {
-                [SVProgressHUD showErrorWithStatus:@"禁止切换"];
-            }
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"允许切换到消息界面吗" message:@"此处可做登录判断等需求" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"不允许" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"允许" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [weakTabBarController setSelectedIndex:3];
         }];
-        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
-        [weakTabBarController presentViewController:navC animated:YES completion:nil];
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        [weakTabBarController.selectedViewController presentViewController:alertController animated:YES completion:nil];
         return NO;
     }];
     [vc3 setTitle:@"消息"];
@@ -77,7 +83,7 @@
     [vc3.tabBarItem setSelectedImage:[UIImage imageNamed:@"msgHL"]];
     [vc3.tabBarItem setBadgeValue:@"3"];
     
-    TLDemoTableViewController *vc4 = [[TLDemoTableViewController alloc] init];
+    TLMineViewController *vc4 = [[TLMineViewController alloc] init];
     UINavigationController *navC4 = [[UINavigationController alloc] initWithRootViewController:vc4];
     [tabBarController addChildViewController:navC4 actionBlock:^BOOL{
         [SVProgressHUD showSuccessWithStatus:@"进入我的界面"];

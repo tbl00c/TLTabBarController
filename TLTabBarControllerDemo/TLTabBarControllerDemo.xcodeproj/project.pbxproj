@@ -22,7 +22,9 @@
 		C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D911F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m */; };
 		C2692D9A1F6C2FEC009C45BC /* TLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D931F6C2FEC009C45BC /* TLTabBarController.m */; };
 		C2692D9B1F6C2FEC009C45BC /* UITabBar+TLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D961F6C2FEC009C45BC /* UITabBar+TLExtension.m */; };
-		C2D983C81F6F812600F37EC2 /* TLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D983C71F6F812600F37EC2 /* TLLoginViewController.m */; };
+		C2DD81871FB015E900322830 /* TLPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DD81861FB015E900322830 /* TLPublishViewController.m */; };
+		C2DD818A1FB033CE00322830 /* TLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DD81891FB033CE00322830 /* TLMessageViewController.m */; };
+		C2DD818D1FB0364600322830 /* TLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DD818C1FB0364600322830 /* TLMineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +57,12 @@
 		C2692D941F6C2FEC009C45BC /* TLTabBarControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTabBarControllerProtocol.h; sourceTree = "<group>"; };
 		C2692D951F6C2FEC009C45BC /* UITabBar+TLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+TLExtension.h"; sourceTree = "<group>"; };
 		C2692D961F6C2FEC009C45BC /* UITabBar+TLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+TLExtension.m"; sourceTree = "<group>"; };
-		C2D983C61F6F812600F37EC2 /* TLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLLoginViewController.h; sourceTree = "<group>"; };
-		C2D983C71F6F812600F37EC2 /* TLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLLoginViewController.m; sourceTree = "<group>"; };
+		C2DD81851FB015E900322830 /* TLPublishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLPublishViewController.h; sourceTree = "<group>"; };
+		C2DD81861FB015E900322830 /* TLPublishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLPublishViewController.m; sourceTree = "<group>"; };
+		C2DD81881FB033CE00322830 /* TLMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLMessageViewController.h; sourceTree = "<group>"; };
+		C2DD81891FB033CE00322830 /* TLMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLMessageViewController.m; sourceTree = "<group>"; };
+		C2DD818B1FB0364600322830 /* TLMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLMineViewController.h; sourceTree = "<group>"; };
+		C2DD818C1FB0364600322830 /* TLMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLMineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +121,12 @@
 				C26906B51F6C219C008159FD /* AppDelegate.m */,
 				C26906C01F6C219C008159FD /* TLDemoTableViewController.h */,
 				C26906C11F6C219C008159FD /* TLDemoTableViewController.m */,
-				C2D983C61F6F812600F37EC2 /* TLLoginViewController.h */,
-				C2D983C71F6F812600F37EC2 /* TLLoginViewController.m */,
+				C2DD81851FB015E900322830 /* TLPublishViewController.h */,
+				C2DD81861FB015E900322830 /* TLPublishViewController.m */,
+				C2DD81881FB033CE00322830 /* TLMessageViewController.h */,
+				C2DD81891FB033CE00322830 /* TLMessageViewController.m */,
+				C2DD818B1FB0364600322830 /* TLMineViewController.h */,
+				C2DD818C1FB0364600322830 /* TLMineViewController.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -190,7 +200,7 @@
 		C269067F1F6C213A008159FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "李伯坤";
 				TargetAttributes = {
 					C26906861F6C213A008159FD = {
@@ -238,16 +248,18 @@
 			files = (
 				C26906C41F6C219C008159FD /* SVProgressAnimatedView.m in Sources */,
 				C26906C81F6C219C008159FD /* TLDemoTableViewController.m in Sources */,
+				C2DD81871FB015E900322830 /* TLPublishViewController.m in Sources */,
 				C26906C31F6C219C008159FD /* SVIndefiniteAnimatedView.m in Sources */,
 				C2692D9B1F6C2FEC009C45BC /* UITabBar+TLExtension.m in Sources */,
 				C26906C21F6C219C008159FD /* AppDelegate.m in Sources */,
 				C26906C71F6C219C008159FD /* SVRadialGradientLayer.m in Sources */,
 				C2692D981F6C2FEC009C45BC /* TLTabBar.m in Sources */,
 				C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */,
+				C2DD818D1FB0364600322830 /* TLMineViewController.m in Sources */,
 				C269068C1F6C213A008159FD /* main.m in Sources */,
-				C2D983C81F6F812600F37EC2 /* TLLoginViewController.m in Sources */,
 				C26906C61F6C219C008159FD /* SVProgressHUD.m in Sources */,
 				C2692D9A1F6C2FEC009C45BC /* TLTabBarController.m in Sources */,
+				C2DD818A1FB033CE00322830 /* TLMessageViewController.m in Sources */,
 				C2692D971F6C2FEC009C45BC /* TLBadge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +288,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -284,7 +298,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -324,7 +342,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -332,7 +352,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
