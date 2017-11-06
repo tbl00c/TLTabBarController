@@ -29,6 +29,8 @@
     
     UIBarButtonItem *clearBadgeButton = [[UIBarButtonItem alloc] initWithTitle:@"消除红点" style:UIBarButtonItemStylePlain target:self action:@selector(clearBadgeButtonClick)];
     [self.navigationItem setRightBarButtonItem:clearBadgeButton];
+    
+    [self loadRequest];
 }
 
 - (void)clearBadgeButtonClick
@@ -38,14 +40,14 @@
 
 - (void)loadRequest
 {
-    [SVProgressHUD showInfoWithStatus:@"正在刷新..."];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.libokun.com"]]];
 }
 
 #pragma mark - # TLTabBarControllerProtocol
 - (void)tabBarItemDidDoubleClick
 {
-    
+    [SVProgressHUD showInfoWithStatus:@"正在刷新..."];
+    [self loadRequest];
 }
 
 @end
