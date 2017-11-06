@@ -21,7 +21,7 @@
 
 
 /**
- *  添加子控制器
+ *  添加突出的tabbarItem，点击事件在acitonBlock中指定
  *
  *  @param  systemTabBarItem    系统tabBarItem
  *  @param  actionBlock         切换事件
