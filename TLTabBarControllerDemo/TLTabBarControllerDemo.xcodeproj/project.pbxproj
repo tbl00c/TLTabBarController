@@ -22,6 +22,7 @@
 		C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D911F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m */; };
 		C2692D9A1F6C2FEC009C45BC /* TLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D931F6C2FEC009C45BC /* TLTabBarController.m */; };
 		C2692D9B1F6C2FEC009C45BC /* UITabBar+TLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2692D961F6C2FEC009C45BC /* UITabBar+TLExtension.m */; };
+		C29F12B41FC6F91200F5B953 /* UITabBarItem+TLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C29F12B31FC6F91200F5B953 /* UITabBarItem+TLExtension.m */; };
 		C2DD81871FB015E900322830 /* TLPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DD81861FB015E900322830 /* TLPublishViewController.m */; };
 		C2DD818A1FB033CE00322830 /* TLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DD81891FB033CE00322830 /* TLMessageViewController.m */; };
 		C2DD818D1FB0364600322830 /* TLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DD818C1FB0364600322830 /* TLMineViewController.m */; };
@@ -57,6 +58,8 @@
 		C2692D941F6C2FEC009C45BC /* TLTabBarControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTabBarControllerProtocol.h; sourceTree = "<group>"; };
 		C2692D951F6C2FEC009C45BC /* UITabBar+TLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+TLExtension.h"; sourceTree = "<group>"; };
 		C2692D961F6C2FEC009C45BC /* UITabBar+TLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+TLExtension.m"; sourceTree = "<group>"; };
+		C29F12B21FC6F91100F5B953 /* UITabBarItem+TLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+TLExtension.h"; sourceTree = "<group>"; };
+		C29F12B31FC6F91200F5B953 /* UITabBarItem+TLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+TLExtension.m"; sourceTree = "<group>"; };
 		C2DD81851FB015E900322830 /* TLPublishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLPublishViewController.h; sourceTree = "<group>"; };
 		C2DD81861FB015E900322830 /* TLPublishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLPublishViewController.m; sourceTree = "<group>"; };
 		C2DD81881FB033CE00322830 /* TLMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLMessageViewController.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				C2692D8B1F6C2FEC009C45BC /* Private */,
+				C29F12B21FC6F91100F5B953 /* UITabBarItem+TLExtension.h */,
+				C29F12B31FC6F91200F5B953 /* UITabBarItem+TLExtension.m */,
 				C2692D921F6C2FEC009C45BC /* TLTabBarController.h */,
 				C2692D931F6C2FEC009C45BC /* TLTabBarController.m */,
 				C2692D941F6C2FEC009C45BC /* TLTabBarControllerProtocol.h */,
@@ -252,6 +257,7 @@
 				C26906C31F6C219C008159FD /* SVIndefiniteAnimatedView.m in Sources */,
 				C2692D9B1F6C2FEC009C45BC /* UITabBar+TLExtension.m in Sources */,
 				C26906C21F6C219C008159FD /* AppDelegate.m in Sources */,
+				C29F12B41FC6F91200F5B953 /* UITabBarItem+TLExtension.m in Sources */,
 				C26906C71F6C219C008159FD /* SVRadialGradientLayer.m in Sources */,
 				C2692D981F6C2FEC009C45BC /* TLTabBar.m in Sources */,
 				C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */,

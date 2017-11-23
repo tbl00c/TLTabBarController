@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UITabBar+TLExtension.h"
+#import "UITabBarItem+TLExtension.h"
 
 @interface TLTabBarController : UITabBarController
 
@@ -21,7 +22,7 @@
 
 
 /**
- *  添加突出的tabbarItem，点击事件在acitonBlock中指定
+ *  添加子控制器
  *
  *  @param  systemTabBarItem    系统tabBarItem
  *  @param  actionBlock         切换事件

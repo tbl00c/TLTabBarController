@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong, readonly) NSArray *barControlItems;
 
+@property (nonatomic, assign) UIEdgeInsets oldSafeAreaInsets;
+
 @end
 
 @implementation TLTabBar
@@ -30,7 +32,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+
     [self p_resetTabBarItems];
 }
 
@@ -58,6 +60,34 @@
     return nil;
 }
 
+#pragma mark - # iOS11 Fixed
+- (void)safeAreaInsetsDidChange
+{
+    [super safeAreaInsetsDidChange];
+    if(self.oldSafeAreaInsets.left != self.safeAreaInsets.left ||
+       self.oldSafeAreaInsets.right != self.safeAreaInsets.right ||
+       self.oldSafeAreaInsets.top != self.safeAreaInsets.top ||
+       self.oldSafeAreaInsets.bottom != self.safeAreaInsets.bottom) {
+        self.oldSafeAreaInsets = self.safeAreaInsets;
+        [self invalidateIntrinsicContentSize];
+        [self.superview setNeedsLayout];
+        [self.superview layoutSubviews];
+    }
+}
+
+- (CGSize)sizeThatFits:(CGSize) size
+{
+    CGSize s = [super sizeThatFits:size];
+    if(@available(iOS 11.0, *)) {
+        CGFloat bottomInset = self.safeAreaInsets.bottom;
+        if( bottomInset > 0 && s.height < 50) {
+            s.height += bottomInset;
+        }
+    }
+    return s;
+}
+
+
 #pragma mark - # Private Methods
 /// 重置TabBarItem持有的Control
 - (void)p_resetTabBarItems
@@ -66,12 +96,6 @@
     if (controlItems.count != self.items.count) {
         NSLog(@"p_resetTabBarItems error");
         return;
-    }
-
-    for (int i = 0; i < self.items.count; i++) {
-        UITabBarItem *item = self.items[i];
-        UIControl *control = controlItems[i];
-        [item setTabBarControl:control];
     }
     
     // 重置图片位置
@@ -89,6 +113,19 @@
         }
     }];
 }
+
+//- (void)p_resetTabBarItemFrames
+//{
+//    CGFloat itemWidth = self.itemWidth;
+//    __block CGFloat x = self.edgeLR;
+//    [self.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        CGFloat radio = obj.isPlusButton ? self.plusItemWidthRatio : 1.0;
+//        CGFloat width = itemWidth * radio;
+//        [obj.tabBarControl setX:x];
+//        [obj.tabBarControl setWidth:width];
+//        x += width;
+//    }];
+//}
 
 #pragma mark - # Getters
 - (NSArray *)barControlItems
