@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TLTabBarController"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.platform     = :ios, "8.0"
   s.summary      = "全能tabBarController，基于原生控件封装"
   s.description  = <<-DESC
