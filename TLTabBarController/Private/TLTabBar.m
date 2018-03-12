@@ -26,7 +26,6 @@
     if (self = [super init]) {
         self.plusButtonImageOffset = 18;
         self.itemPositioning = UITabBarItemPositioningFill;
-        [self setBarTintColor:[UIColor whiteColor]];
     }
     return self;
 }
