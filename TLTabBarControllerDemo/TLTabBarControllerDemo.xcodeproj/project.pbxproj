@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20E983D219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.m in Sources */ = {isa = PBXBuildFile; fileRef = C20E983B219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.m */; };
 		C269068C1F6C213A008159FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C269068B1F6C213A008159FD /* main.m */; };
 		C269069A1F6C213A008159FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26906981F6C213A008159FD /* LaunchScreen.storyboard */; };
 		C26906C21F6C219C008159FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C26906B51F6C219C008159FD /* AppDelegate.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C20E983B219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TLTabBar+iOS12_1Fix.m"; sourceTree = "<group>"; };
+		C20E983C219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TLTabBar+iOS12_1Fix.h"; sourceTree = "<group>"; };
 		C26906871F6C213A008159FD /* TLTabBarControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLTabBarControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C269068B1F6C213A008159FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C26906991F6C213A008159FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 		C2692D8B1F6C2FEC009C45BC /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				C20E983C219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.h */,
+				C20E983B219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.m */,
 				C2692D8C1F6C2FEC009C45BC /* TLBadge.h */,
 				C2692D8D1F6C2FEC009C45BC /* TLBadge.m */,
 				C2692D8E1F6C2FEC009C45BC /* TLTabBar.h */,
@@ -260,6 +265,7 @@
 				C29F12B41FC6F91200F5B953 /* UITabBarItem+TLExtension.m in Sources */,
 				C26906C71F6C219C008159FD /* SVRadialGradientLayer.m in Sources */,
 				C2692D981F6C2FEC009C45BC /* TLTabBar.m in Sources */,
+				C20E983D219D27DF0011CED3 /* TLTabBar+iOS12_1Fix.m in Sources */,
 				C2692D991F6C2FEC009C45BC /* UITabBarItem+TLPrivateExtension.m in Sources */,
 				C2DD818D1FB0364600322830 /* TLMineViewController.m in Sources */,
 				C269068C1F6C213A008159FD /* main.m in Sources */,
