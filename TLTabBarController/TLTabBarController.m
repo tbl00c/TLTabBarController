@@ -37,7 +37,7 @@
 {
     UIViewController *vc = viewController;
     if (([viewController isKindOfClass:[UINavigationController class]] || [viewController isMemberOfClass:[UINavigationController class]]) && viewController.childViewControllers.count > 0) {
-        vc = viewController.childViewControllers.firstObject;
+        vc = viewController.childViewControllers.lastObject;
     }
     
     // 判断是否已选中
